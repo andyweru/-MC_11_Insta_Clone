@@ -1,3 +1,10 @@
-.firstClass {
-    color: green;
+@import 'reset';
+
+body{
+    background: #fff;
+}
+
+.fa{
+    color: #111;
+    font-size: 25px;
 }

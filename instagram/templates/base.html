@@ -1,10 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
   <title>InstaClone</title>
+
+  {% block styles %}
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  {% endblock %}
+
 </head>
 <body>
-    <h1>base</h1><br>
+    {% include "navbar.html" %}
     {% block content %}{% endblock %}
+
+
+    {% block scripts %}
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    {% endblock %}
 </body>
 </html>

@@ -1,11 +1,15 @@
 
 header{
     background: #fafafa;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 a{
     box-sizing: border-box;
-    width: 25%;
+    width: 33.33%;
     display: inline-block;
     margin-left: -3px;
     text-align: center;
