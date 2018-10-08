@@ -16,3 +16,5 @@ def profile(request):
 @login_required(login_url='/accounts/login/')
 def search(request):
     return render(request, "search.html")
+
+        
