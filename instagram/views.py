@@ -17,4 +17,7 @@ def profile(request):
 def search(request):
     return render(request, "search.html")
 
+@login_required(login_url='/accounts/login/')
+def upload(request):
+    return render(request, "upload.html")
         
