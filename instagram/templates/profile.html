@@ -8,7 +8,8 @@
         <div class="row">
             <div class="col m6 s6 container">
                 <i id="avatar" class=" center-align fa fa-user-circle col m12s"></i>
-                <h4 class="col m6">Weshy</h4>
+                <h4 class="col m6">{{user.username}}</h4>
+                <p class="col m6">{{user.profile.bio}}</p>
             </div>
             <div class="container col m6 s6">
                     <a class='dropdown-trigger btn-large col m6' href='#' data-target='dropdown1'><i class="fa fa-cog"></i></a>
@@ -22,13 +23,38 @@
         </div>
             
         <div class="row">
-                <div class="col m4">Posts <span>0</span></div>
+                <div class="col m4">Posts <span>{{images|length}}</span></div>
                 <div class="col m4">Followers <span>0</span></div>
                 <div class="col m4">Following <span>0</span></div>
                 
         </div>
 
-        <hr>
+        <br>
+
+        <div class="col m2"></div> <hr class="col m8"><div class="col m2"></div>
+
+        <div class="row">
+
+            {% for image in images %}
+
+                <div class="col m4">
+
+                    <div class="card">
+                        <div class="card-image">
+
+                            <img src="{{image.image.url}}" alt="">
+
+                        </div>
+
+                    </div>
+      
+                </div>  
+      
+            {% endfor %}
+
+        </div>
+
+
         
     </div>
 {% endblock %}
