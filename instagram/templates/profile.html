@@ -7,19 +7,25 @@
     <div class="container">
         <div class="row">
             <div class="col m12 container">
-                <i id="avatar" class=" center-align fa fa-user-circle"></i>
-                <h4>Weshy</h4>
+                <i id="avatar" class=" center-align fa fa-user-circle col m12s"></i>
+                <h4 class="col m6">Weshy</h4><a class='dropdown-trigger btn-large col m6' href='#' data-target='dropdown1'><i class="fa fa-cog"></i></a>
+
+                        <ul id='dropdown1' class='dropdown-content'>
+                                <li><a href="#!">Profile</a></li>
+                                <li class="divider" tabindex="-1"></li>
+                                <li><a href="/logout">LogOut</a></li>
+                        </ul>
             </div>
         </div>
             
         <div class="row">
-                <div class="col m3">Posts <span>0</span></div>
-                <div class="col m3">Followers <span>0</span></div>
-                <div class="col m3">Following <span>0</span></div>
-                <div class="col m3">
-                        <i class="fa fa-cog"></i>
-                </div>
+                <div class="col m4">Posts <span>0</span></div>
+                <div class="col m4">Followers <span>0</span></div>
+                <div class="col m4">Following <span>0</span></div>
+                
         </div>
+
+        <hr>
         
     </div>
 {% endblock %}
