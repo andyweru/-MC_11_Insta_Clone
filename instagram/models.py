@@ -32,13 +32,13 @@ class Profile(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to='images/')
-    image_caption = models.CharField(blank=True, max_length=200)
+    image_caption = models.CharField(blank=True, max_length=200,)
     profile = models.ForeignKey(Profile, related_name="user_profile")
     posted = models.DateTimeField(auto_now_add=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.image_name
+        return self.image_caption
 
     def save_photo(self):
         self.save()
