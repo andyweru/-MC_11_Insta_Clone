@@ -30,3 +30,27 @@ class Profile(models.Model):
         return self.user.username
 
 
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/')
+    image_caption = models.CharField(blank=True, max_length=200)
+    profile = models.ForeignKey(Profile, related_name="user_profile")
+    posted = models.DateTimeField(auto_now_add=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image_name
+
+    def save_photo(self):
+        self.save()
+
+    def delete_photot(self):
+        self.delete()
+
+    @classmethod
+    def display_images(cls):
+        images=cls.objects.all()
+        return images
+    
+    @classmethod
+    def filter_imagebyprofile(cls):
+        cls.objects.all().filter()
