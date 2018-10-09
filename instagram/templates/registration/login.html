@@ -9,18 +9,24 @@
                 {% endif %}
                  <div class="panel panel-default">
                      <div class="panel-body">
+
+                        <h1>InstaClone</h1>
+
+                        <br><br>
+
                         <div class="card">
-                            <div class="card-title">
-                                <div class="container">
-                                        <h5>Sign In</h5>
-                                </div>
+                            <div class="card-content">
+                                <h5>Sign In</h5>
                             </div>
                             <div class="card-content">
                                     <form action="/accounts/login/" method="post">
                                         {% csrf_token %}
                                         {% bootstrap_form form%}
+
+                                        <br><br>
                                         <div class="form-group">
                                             <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                                            <a href="/accounts/register">Don't have an account?  Create a new account</a>
                                         </div>
                                         <input type="hidden" name="next" value="">
                                     </form>

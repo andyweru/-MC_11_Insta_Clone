@@ -10,21 +10,24 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="card">
-                            <div class="card-title">
-                                <div class="container">
-                                        <h4 class="text-center">InstaClone Sign Up</h4>
+                            <div class="card-content">
+                                
+                                <h4 class="text-center">InstaClone Sign Up</h4>
 
-                                </div>
+                                
                             </div>
                             <div class="card-content">
-                                    <form action="accounts/register/" method="post">
+                                    <form action="" method="post">
                                         {% csrf_token %}
                                         {% bootstrap_form form%}
+
+                                        <br><br>
                                         <div class="form-group">
-                                            <input type="submit" class="btn btn-primary btn-sm" value="Sign up">  
+                                            <input type="submit" class="btn btn-primary btn-sm" value="Sign up">
+                                            <a href="/accounts/login">Already have an account? Login</a>  
                                         <input type="hidden" name="next" value="{{next}}">     
                                         </div>
-                                        </form>
+                                    </form>
                             </div>
                         </div>
                     </div>
