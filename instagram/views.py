@@ -8,7 +8,8 @@ from .models import *
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def entry(request):
-    return render(request, "entry.html")
+    images = Image.objects.all()
+    return render(request, "entry.html", {"images":images})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):

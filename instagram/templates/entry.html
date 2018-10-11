@@ -7,6 +7,8 @@
 <br>
 
 <div class="container">
+       {% for image in images %}
+
        <div class="row">
         <div class="col m1"></div>
         <div class="col m10">
@@ -16,18 +18,18 @@
                                     <br>
                                     <span class="col m1 "></span>
                                     <span class="col m1 card-title"><i class="fa fa-user-circle"></i></span>
-                                    <span class="col m8 card-title"><h6>  Khloe Kardashian</h6></span>
+                                    <span class="col m8 card-title"><h6>  {{image.profile}}</h6></span>
                             </div>
                         </div>
                         <div class="card-image">
-                          <img src="https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/2018/02/20/iol/993/27880181_1677081129019009_6905372174249361408_n.jpg" alt="">
+                          <img src="{{image.image.url}}" alt="">
                           </a>
                         </div>
                         <div class="card-content">
                                 <span class=""><i class="fa fa-heart"></i></span><span>  0 </span><span>Likes</span>
                         </div>
                         <div class="card-content">
-                                <p><span class="blue-text">Khloe Kardashian  </span> ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis aliquam orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                <p><span class="blue-text">{{image.profile}}  </span> {{image.image_caption}}</p>
                                                              
                               
                         </div>
@@ -55,6 +57,9 @@
         </div>
         <div class="col m1"></div>
        </div>
+       
+
+       {% endfor %}
 </div>
 
 {% endblock %}
