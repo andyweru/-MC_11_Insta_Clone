@@ -6,14 +6,40 @@
     <br>
     <br>
 
-    <form class="col s12">
+    <form class="col s12" role="search" action="{% url 'search' %}">
             <div class="row">
-              <div class="input-field col s12">
+              <div class="input-field col s10">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
+                <input name="user" id="icon_prefix" type="text" class="validate">
                 <label for="icon_prefix">Search Users</label>
               </div>
             </div>
-          </form>
+    </form>
+
+    <br><br>
+
+    <div class="container-fluid">
+
+      <div class="row">
+        {% if users %}
+          <h6>Found {{ users|length }} {{message}}</h6>
+        {% else %}
+          <h6> Found 0 users with such name.</h6>
+          <p> {{message}}</p>
+        {% endif %}
+    
+      </div>
+    
+      <div class="row">
+    
+      {% if users %}
+        {% for user in users %}
+          <div class="col-sm-6 col-md-3">
+              <a href="#"><h4><i class="material-icons prefix">account_circle</i>  {{user.user}}</h4></a>
+          </div>
+        {% endfor %}
+      {% endif %}
+      </div>
+    </div>
 
 {% endblock %}

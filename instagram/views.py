@@ -20,7 +20,19 @@ def profile(request):
 
 @login_required(login_url='/accounts/login/')
 def search(request):
-    return render(request, "search.html")
+    
+    if 'user' in request.GET and request.GET["user"]:
+        search_term = request.GET.get("user")
+        searched_users = Profile.find_username(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"users": searched_users})
+
+
+    else:
+        message = "User does not exist"
+        return render(request, 'search.html',{"message":message})
+
 
 @login_required(login_url='/accounts/login/')
 def upload(request):
