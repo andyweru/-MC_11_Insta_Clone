@@ -10,7 +10,7 @@ from .forms import NewImageForm
 @login_required(login_url='/accounts/login/')
 def entry(request):
     images = Image.objects.all()
-    return render(request, "entry.html", {"images":images})
+    return render(request, "entry.html", {"images":images[::-1]})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
