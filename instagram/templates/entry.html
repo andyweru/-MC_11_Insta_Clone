@@ -29,7 +29,12 @@
                                 <span class=""><i class="fa fa-heart"></i></span><span>  0 </span><span>Likes</span>
                         </div>
                         <div class="card-content">
-                                <p><span class="blue-text">{{image.profile}}  </span> {{image.image_caption}}</p>
+                                <p>
+                                <span class="blue-text">{{image.profile}}  </span>      
+                                        {% autoescape on %}
+                                        {{image.image_caption| safe}}
+                                       {% endautoescape %}
+                                </p>
                                                              
                               
                         </div>
@@ -37,8 +42,8 @@
                         <br>
                         <a class="hide-on-large-only" href="">View Comments</a>
                         <div class="card-content hide-on-small-only" 
-                                <p><span class="blue-text">Ken  </span> ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis aliquam orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                                <p><span class="blue-text">Chloe  </span> ipsum  nascetur ridiculus mus.</p>
+                                <p><span class="blue-text">Ken  </span> cool </p>
+                                <p><span class="blue-text">Chloe  </span> I like your post keep up the good job. </p>
                         </div>
                         <div class="card-action">
                                 <div class="row">

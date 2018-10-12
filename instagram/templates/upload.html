@@ -1,10 +1,57 @@
-{% extends 'base.html' %}
-{% block content%}
+{% load bootstrap3 %} {% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
 
-<br>
-<br>
-<br>
+  <title>InstaClone | Upload Image</title>
+  {{form.media}}
 
-    <h1>Upload</h1>
 
-{% endblock %}
+  {% block styles %}
+    {% bootstrap_css %}
+
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  {% endblock %}
+
+</head>
+<body>
+    {% include "navbar.html" %}
+    
+    <div class="container">
+        <br>
+        <br>
+        <br>
+    
+        <h1>Upload Image</h1>
+
+        <form  action="{%url 'upload'%}" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+        
+            {% bootstrap_form form%}
+            <input type="submit" class="btn btn-success btn-lg" value="Post">
+          </form>
+    </div>
+
+   
+
+
+    {% block scripts %}
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+      <script>
+          $('.dropdown-trigger').dropdown();
+      </script>
+
+    {% bootstrap_javascript %}
+
+    {% endblock %}
+</body>
+</html>

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -22,7 +23,7 @@ class Profile(models.Model):
     @classmethod
     def find_username(cls, search_term):
         profiles=cls.objects.filter(user__username__icontains=search_term)
-        return profiles
+        return profiles 
 
     def __str__(self):
         return self.user.username
@@ -30,7 +31,7 @@ class Profile(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to='images/')
-    image_caption = models.CharField(blank=True, max_length=200,)
+    image_caption = HTMLField()
     profile = models.ForeignKey(Profile, related_name="user_profile")
     posted = models.DateTimeField(auto_now_add=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

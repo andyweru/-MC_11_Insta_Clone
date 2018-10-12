@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import logout
 from django.contrib.auth.decorators import login_required
 from .models import *
+from .forms import NewImageForm
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -36,5 +37,14 @@ def search(request):
 
 @login_required(login_url='/accounts/login/')
 def upload(request):
-    return render(request, "upload.html")
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = current_user
+            image.save()
+    else:
+        form = NewImageForm()
+    return render(request, 'upload.html', {"form": form})
         
