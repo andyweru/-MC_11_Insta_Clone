@@ -31,20 +31,14 @@
                         <div class="card-content">
                                 <p>
                                 <span class="blue-text">{{image.profile}}  </span>      
-                                        {% autoescape on %}
-                                        {{image.image_caption| safe}}
-                                       {% endautoescape %}
+                                <span>{% autoescape on %}{{image.image_caption| safe}}{% endautoescape %}</span>
                                 </p>
                                                              
                               
                         </div>
-                        <span class="col m2"></span><hr class="col m8"><span class="col m2"></span>
                         <br>
                         <a class="hide-on-large-only" href="">View Comments</a>
-                        <div class="card-content hide-on-small-only" 
-                                <p><span class="blue-text">Ken  </span> cool </p>
-                                <p><span class="blue-text">Chloe  </span> I like your post keep up the good job. </p>
-                        </div>
+ 
                         <div class="card-action">
                                 <div class="row">
                                         <form class="col s12">
