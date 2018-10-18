@@ -5,6 +5,8 @@ from django.contrib.auth.views import logout
 from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import NewImageForm
+from django.shortcuts import redirect
+
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -44,6 +46,7 @@ def upload(request):
             image = form.save(commit=False)
             image.user = current_user
             image.save()
+        return redirect('/')
     else:
         form = NewImageForm()
     return render(request, 'upload.html', {"form": form})
