@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+
+<div class="row">
+    <div class="col m1"></div>
+    <div class="col m10">
+            <div class="card">
+                    <div class="">
+                        <div class="row">
+                                <br>
+                                <span class="col m1 "></span>
+                                <span class="col m1 card-title"><i class="fa fa-user-circle"></i></span>
+                                <span class="col m8 card-title"><h6>  {{post.profile}}</h6></span>
+                        </div>
+                    </div>
+                    <div class="card-image">
+                      <img src="{{post.image.url}}" alt="">
+                      </a>
+                    </div>
+                    <div class="card-content">
+                            <span class=""><i class="fa fa-heart"></i></span><span>  0 </span><span>Likes</span>
+                    </div>
+                    <div class="card-content">
+                            <p>
+                            <span class="blue-text">{{post.profile}}  </span>      
+                            <span>{% autoescape on %}{{post.image_caption| safe}}{% endautoescape %}</span>
+                            </p>
+                                                         
+                          
+                    </div>
+                    <br>
+                    <a class="hide-on-large-only" href="">View Comments</a>
+
+                    <div class="card-action">
+                            <div class="row">
+                                    <form class="col s12">
+                                      <div class="row">
+                                        <div class="input-field col s10">
+                                          <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                          <label for="textarea1">Comment</label>
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </div>
+                    </div>
+                    
+                  </div>
+    </div>
+    <div class="col m1"></div>
+   </div>
+
+
+   {% endblock %}
